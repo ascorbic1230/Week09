@@ -32,7 +32,7 @@ public class ShowHeadlines extends Activity {
         Bundle myBundle = callingIntent.getExtras();
         urlAddress = myBundle.getString("urlAddress"); urlCaption = myBundle.getString("urlCaption");
 // update app’s top ‘TitleBar’ (eg. ‘NPR - Business Wed April 09, 2014’)
-        this.setTitle("NPR – " + urlCaption + " \t" + MainActivity2.niceDate());
+        this.setTitle("VNEXPRESS – " + urlCaption + " \t" + MainActivity2.niceDate());
         myListView = (ListView)this.findViewById(R.id.myListView);
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> av, View v, int index, long id) {

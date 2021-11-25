@@ -40,13 +40,12 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        setTitle("VNEXPRESS");
+        setContentView(R.layout.activity_main2);
         for (int i=0; i<myUrlAddress.length; i++) {
             myUrlAddress[i] = myUrlCaptionMenu[i][0]; myUrlCaption[i] = myUrlCaptionMenu[i][1];
         }
         context = getApplicationContext();
-        this.setTitle("NPR Headline News\n" + niceDate() );
+        this.setTitle("VNExpress Headline News\n" + niceDate() );
         myMainListView = (ListView)this.findViewById(R.id.myListView);
         myMainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> _av, View _v, int _index, long _id) {
