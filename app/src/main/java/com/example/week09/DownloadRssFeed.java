@@ -25,15 +25,15 @@ public class DownloadRssFeed extends AsyncTask<String, Void, ArrayList<SingleIte
 // slow and MUST be performed inside a thread or asynctask (as in here)
     ShowHeadlines callerContext; //caller class
     String urlAddress, urlCaption;
-    ProgressDialog dialog = null;
+//    ProgressDialog dialog = null;
     public DownloadRssFeed(Context callerContext){
         this.callerContext = (ShowHeadlines) callerContext;
-        dialog = new ProgressDialog(callerContext);
+//        dialog = new ProgressDialog(callerContext);
     }
     protected void onPreExecute() {
-        this.dialog.setMessage("Please wait\nReading RSS feed ...");
-        this.dialog.setCancelable(false); //outside touching doesn’t dismiss you
-        this.dialog.show();
+////        this.dialog.setMessage("Please wait\nReading RSS feed ...");
+//        this.dialog.setCancelable(false); //outside touching doesn’t dismiss you
+//        this.dialog.show();
     }
     @Override
     protected void onPostExecute(ArrayList<SingleItem> result) {
@@ -43,7 +43,7 @@ public class DownloadRssFeed extends AsyncTask<String, Void, ArrayList<SingleIte
         int layoutID = R.layout.my_simple_list_item_1;
         ArrayAdapter<SingleItem> adapterNews = new ArrayAdapter<SingleItem>(callerContext, layoutID, result);
         callerContext.myListView.setAdapter(adapterNews);
-        dialog.dismiss();
+//        dialog.dismiss();
     }
     public SingleItem dissectItemNode(NodeList nodeList, int i){
 // disassemble i-th entry in NodeList collection get the first child of elements: extract fields:
@@ -69,7 +69,7 @@ public class DownloadRssFeed extends AsyncTask<String, Void, ArrayList<SingleIte
         ArrayList<SingleItem> newsList = new ArrayList<SingleItem>();
         urlAddress = params[0]; // eg. "http://www.npr.org/rss/rss.php?id=1004"
         urlCaption = params[1]; // eg. "World News"
-        this.dialog.setMessage("Please wait\nReading RSS feed " + urlCaption + "...");
+////        this.dialog.setMessage("Please wait\nReading RSS feed " + urlCaption + "...");
         try { // try to get connected to RSS source
             URL url = new URL(urlAddress);
             URLConnection connection;

@@ -22,15 +22,18 @@ public class ShowHeadlines extends Activity {
 // ["urlCaption", "urlAddress"] comes in a bundle sent by main thread
 // here we access RSS-feed and show corresponding headlines
     ArrayList<SingleItem> newsList = new ArrayList<SingleItem>();
-    ListView myListView; String urlAddress = "", urlCaption = ""; SingleItem selectedNewsItem;
+    ListView myListView;
+    String urlAddress = "", urlCaption = "";
+    SingleItem selectedNewsItem;
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState); setContentView(R.layout.activity_main);
+        super.onCreate(savedInstanceState); setContentView(R.layout.activity_main2);
         myListView = (ListView)this.findViewById(R.id.myListView);
 // find out which intent is calling us & grab data bundle holding selected url & caption sent to us
         Intent callingIntent = getIntent();
         Bundle myBundle = callingIntent.getExtras();
-        urlAddress = myBundle.getString("urlAddress"); urlCaption = myBundle.getString("urlCaption");
+        urlAddress = myBundle.getString("urlAddress");
+        urlCaption = myBundle.getString("urlCaption");
 // update app’s top ‘TitleBar’ (eg. ‘NPR - Business Wed April 09, 2014’)
         this.setTitle("VNEXPRESS – " + urlCaption + " \t" + MainActivity2.niceDate());
         myListView = (ListView)this.findViewById(R.id.myListView);
@@ -55,7 +58,7 @@ public class ShowHeadlines extends Activity {
             AlertDialog.Builder myBuilder = new AlertDialog.Builder(this);
             //TODO
             myBuilder.setIcon(R.drawable.ic_launcher_background)
-                    .setTitle(Html.fromHtml(urlCaption) )
+                    .setTitle(Html.fromHtml(urlCaption, 0))
                     .setMessage(title + "\n\n" + Html.fromHtml(description, HtmlCompat.FROM_HTML_MODE_LEGACY) + "\n")
                     .setPositiveButton("Close", null)
                     //TODO
