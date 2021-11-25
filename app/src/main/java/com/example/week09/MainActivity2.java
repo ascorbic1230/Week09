@@ -26,7 +26,7 @@ public class MainActivity2 extends AppCompatActivity {
             {"https://vnexpress.net/rss/the-gioi.rss", "Thế giới"},
             {"https://vnexpress.net/rss/thoi-su.rss", "Thời sự"},
             {"https://vnexpress.net/rss/kinh-doanh.rss", "Kinh doanh"},
-            {"https://vnexpress.net/rss/startup.rss", "Startup"},
+            {"https://vnexpress.net/rss/phap-luat.rss", "Pháp luật"},
             {"https://vnexpress.net/rss/giai-tri.rss", "Giải trí"},
             {"https://vnexpress.net/rss/the-thao.rss", "Thể thao"},
             {"https://vnexpress.net/rss/giao-duc.rss", "Giáo dục"}
