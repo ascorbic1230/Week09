@@ -1,12 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grid="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="5dp"
-    android:orientation="vertical">
-<ImageView android:layout_width="300dp"
-    android:layout_height="100dp"
-    android:layout_margin="10dp"
-    android:id="@+id/vnexpress"
-    android:background="@mipmap/vnexpress_logo"/>
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:text="News app"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:id="@+id/gridlayout">
+
+        <ImageView
+            android:id="@+id/vnexpress"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="10dp"
+            android:background="@mipmap/vnexpress_logo"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/thanhnien"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="10dp"
+            android:background="@mipmap/thanhnien_logo"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/phapluat"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="10dp"
+            android:background="@mipmap/phapluat_logo"
+            android:gravity="center" />
+
+
+    </GridLayout>
+
+
 </LinearLayout>

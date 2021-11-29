@@ -15,24 +15,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivity2 extends Activity {
 
     ArrayAdapter<String> adapterMainSubjects;
     ListView myMainListView;
     Context context;
     SingleItem selectedNewsItem;
-    // hard-coding main NEWS categories (TODO: use a resource file)
-    String [][] myUrlCaptionMenu = {
-            {"https://vnexpress.net/rss/the-gioi.rss", "Thế giới"},
-            {"https://vnexpress.net/rss/thoi-su.rss", "Thời sự"},
-            {"https://vnexpress.net/rss/kinh-doanh.rss", "Kinh doanh"},
-            {"https://vnexpress.net/rss/phap-luat.rss", "Pháp luật"},
-            {"https://vnexpress.net/rss/giai-tri.rss", "Giải trí"},
-            {"https://vnexpress.net/rss/the-thao.rss", "Thể thao"},
-            {"https://vnexpress.net/rss/giao-duc.rss", "Giáo dục"}
-    };
-    String[] myUrlCaption = new String[myUrlCaptionMenu.length];
-    String[] myUrlAddress = new String[myUrlCaptionMenu.length];
+//    String[][] myUrlCaptionMenu;
+//    String[] myUrlCaption;
+//    String[] myUrlAddress;
+
     public static String niceDate() {
         SimpleDateFormat sdf = new SimpleDateFormat("EE MMM d, yyyy",
                 Locale.US);
@@ -42,6 +34,56 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        Intent callingIntent = getIntent();
+        Bundle myBundle = callingIntent.getExtras();
+        int trang = myBundle.getInt("trang");
+        String[][] myUrlCaptionMenu;
+        String[] myUrlCaption;
+        String[] myUrlAddress;
+
+        if (trang == 1) {
+            myUrlCaptionMenu = new String[][]{
+                    {"https://vnexpress.net/rss/the-gioi.rss", "Thế giới"},
+                    {"https://vnexpress.net/rss/thoi-su.rss", "Thời sự"},
+                    {"https://vnexpress.net/rss/kinh-doanh.rss", "Kinh doanh"},
+                    {"https://vnexpress.net/rss/phap-luat.rss", "Pháp luật"},
+                    {"https://vnexpress.net/rss/giai-tri.rss", "Giải trí"},
+                    {"https://vnexpress.net/rss/the-thao.rss", "Thể thao"},
+                    {"https://vnexpress.net/rss/giao-duc.rss", "Giáo dục"}
+            };
+        }
+        else if (trang == 2)
+        {
+            myUrlCaptionMenu = new String[][]{
+                    {"https://thanhnien.vn/rss/video/thoi-su-333.rss", "Thời sự"},
+                    {"https://thanhnien.vn/rss/video/phong-su-349.rss", "Phóng sự"},
+                    {"https://thanhnien.vn/rss/video/giai-tri-334.rss", "Giải trí"},
+                    {"https://thanhnien.vn/rss/video/mon-ngon-350.rss", "Món ngon"},
+                    {"https://thanhnien.vn/rss/video/video-the-thao-335.rss", "Thể thao"},
+                    {"https://thanhnien.vn/rss/video/the-gioi-348.rss", "Thế giới"},
+                    {"https://thanhnien.vn/rss/video/truc-tuyen-347.rss", "Trực tuyến"},
+                    {"https://thanhnien.vn/rss/thoi-su/chinh-tri-227.rss", "Chính trị"},
+                    {"https://thanhnien.vn/rss/thoi-su/phap-luat-5.rss", "Pháp luật"},
+                    {"https://thanhnien.vn/rss/thoi-su/dan-sinh-176.rss", "Dân sinh"}
+            };
+        }
+        else {
+            myUrlCaptionMenu = new String[][]{
+                    {"https://baophapluat.vn/rss/thoi-su-276.rss", "Thời sự"},
+                    {"https://baophapluat.vn/rss/tu-phap-25.rss", "Tư pháp"},
+                    {"https://baophapluat.vn/rss/kinh-te-13.rss", "kinh tế"},
+                    {"https://baophapluat.vn/rss/kinh-doanh-1375.rss", "kinh doanh"},
+                    {"https://baophapluat.vn/rss/giao-duc-1326.rss", "Giáo dục"},
+                    {"https://baophapluat.vn/rss/moi-truong-1339.rss", "Môi trường"},
+                    {"https://baophapluat.vn/rss/giai-tri-1286.rss", "Giải trí"}
+            };
+        }
+        myUrlCaption = new String[myUrlCaptionMenu.length];
+        myUrlAddress = new String[myUrlCaptionMenu.length];
+
+
+
         for (int i=0; i<myUrlAddress.length; i++) {
             myUrlAddress[i] = myUrlCaptionMenu[i][0]; myUrlCaption[i] = myUrlCaptionMenu[i][1];
         }
